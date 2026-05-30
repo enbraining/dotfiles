@@ -1,0 +1,40 @@
+# This config is a STUB! This should never be generated.
+# Use the default lua config from https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+
+
+
+$mainMod = SUPER
+$terminal = kitty
+$fileManager = dolphin
+$menu = hyprlauncher
+
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, C, killactive,
+bind = $mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, R, exec, $menu
+bind = SUPER, Space, exec, rofi -show drun
+bind = SUPER, Tab, exec, rofi -show window   # 창 전환
+
+exec-once = /usr/lib/polkit-kde-authentication-agent-1
+exec-once = dunst
+
+env = GTK_IM_MODULE,fcitx
+env = QT_IM_MODULE,fcitx
+env = XMODIFIERS,@im=fcitx
+env = SDL_IM_MODULE,fcitx
+
+# 자동 실행
+exec-once = fcitx5 -d
+
+input {
+    kb_layout = us,kr
+    kb_options = korean:ralt_hangul  # Alt+Space로 한/영 전환 (선택사항)
+}
+
+general {
+    gaps_in = 0
+    gaps_out = 0
+}
+
